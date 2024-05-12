@@ -14,6 +14,22 @@ export const load = {
         loadSprite("Left-key", "./assets/Arrow_Left_Key_Dark.png")
         loadSprite("Space-key", "./assets/Space_Key_Dark.png")
 
+        loadSprite("water", "./assets/Water.png", {
+            sliceX: 8,
+            sliceY: 1,
+            anims: {
+                wave: {
+                    from: 0, to: 7,
+                    speed: 16, loop: true,
+                },
+
+                "wave-reversed": {
+                    from: 7, to: 0,
+                    speed: 16, loop: true,
+                },
+            }
+        })
+        
         loadSprite("grass-tileset", "./assets/Grass_Tileset.png", {
             sliceX: 3,
             sliceY: 4,
@@ -50,6 +66,16 @@ export const load = {
               "mr-2": 8,
             },
           })
+        
+        loadSprite("player", "./assets/Player.png", {
+            sliceX: 4,
+            sliceY: 6,
+            anims: {
+                idle: {
+                    from: 0, to: 3, loop: true
+                }
+            }
+        })
     },
 
     sounds: () => {
