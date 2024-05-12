@@ -3,6 +3,7 @@ import { uiManager } from "./utils/UIManager.js"
 import { load } from "./utils/loader.js"
 import { Level } from "./utils/Level.js"
 import { level1Layout, level1Mappings } from "./content/Level 1/level1Layout.js"
+import { Player } from "./entities/player.js" 
 
 kaboom({
     width: 1280,
@@ -30,6 +31,9 @@ const scenes = {
         const level1 = new Level()
         level1.drawBg("forest-Bg")
         level1.drawMap(level1Layout, level1Mappings)
+        const player = new Player(1500, 100, 400, 
+            3, 650, 3, 1, false )
+        level1.drawWaves("water", "wave")
     },
     2: () => {},
     3: () => {},
