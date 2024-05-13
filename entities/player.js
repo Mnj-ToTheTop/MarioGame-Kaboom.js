@@ -1,5 +1,10 @@
 export class Player
 {
+    
+    heightDelta = 0
+    isRespawning = false
+    isMoving = false
+    
     constructor(posX, 
         posY, speed, jumpForce, 
         nbLives, currentLevelScene, 
