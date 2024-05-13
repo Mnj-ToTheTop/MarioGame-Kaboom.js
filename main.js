@@ -44,7 +44,7 @@ const scenes = {
             false
         )
 
-        player.update()
+        //player.update()
 
         attachCamera(player.gameObj, 0, 200)
 
