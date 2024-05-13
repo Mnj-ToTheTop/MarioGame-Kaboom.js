@@ -30,6 +30,22 @@ export class Player
         ])
     }
 
+    enablePassthrough(){
+        this.gameObj.onBeforePhysicsResolve((collison) => {
+            if(collison.target.is("passthrough") && this.gameObj.isJumping())
+            {
+                collison.preventResolution()
+            }
+
+            if(collison.target.is("passthrough") && isKeyDown("down"))
+            {
+                collison.preventResolution()
+            }
+        })
+
+
+    }
+
     setPlayerControls()
     {
         onKeyDown("left", () => {
