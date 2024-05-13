@@ -3,7 +3,9 @@ import { uiManager } from "./utils/UIManager.js"
 import { load } from "./utils/loader.js"
 import { Level } from "./utils/Level.js"
 import { level1Layout, level1Mappings } from "./content/Level 1/level1Layout.js"
-import { Player } from "./entities/player.js" 
+import { Player } from "./entities/player.js"
+import { attachCamera } from "./utils/camera.js"
+import { level1Config } from "./content/Level 1/config.js"
 
 kaboom({
     width: 1280,
