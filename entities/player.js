@@ -74,7 +74,6 @@ export class Player
             {
                 if(!this.isRespawning) this.gameObj.jump(this.jumpForce)
                 play("jump-sound")
-                this.isMoving = true
             }
         })
 
@@ -105,7 +104,7 @@ export class Player
             this.heightDelta = this.previousHeight - this.gameObj.pos.y
             this.previousHeight = this.gameObj.pos.y
             
-            if (this.isMoving == false && 
+            if (!this.isMoving && 
                 this.gameObj.curAnim() !== "idle")
             {
                 this.gameObj.play("idle")
