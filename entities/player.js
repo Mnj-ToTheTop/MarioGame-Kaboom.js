@@ -33,15 +33,15 @@ export class Player
         setPlayerControls()
     {
         onKeyDown("left", () => {
-            /*if (this.gameObj.curAnim() !== "run")
-                this.gameObj.play("run")*/
+            if (this.gameObj.curAnim() !== "run")
+                this.gameObj.play("run")
             this.gameObj.flipX = true
             if(!this.isRespawning) this.gameObj.move(-this.speed, 0)
         })
 
         onKeyDown("right", () => {
-            /*if (this.gameObj.curAnim() !== "run")
-                this.gameObj.play("run")*/
+            if (this.gameObj.curAnim() !== "run")
+                this.gameObj.play("run")
             this.gameObj.flipX = false
             if(!this.isRespawning) this.gameObj.move(this.speed, 0)
         })
