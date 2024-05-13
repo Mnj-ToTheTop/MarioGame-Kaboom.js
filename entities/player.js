@@ -61,15 +61,15 @@ export class Player
     }
 
     respawnPlayer() 
+    {
+        if (this.lives > 0)
         {
-            if (this.lives > 0)
-            {
-                this.lives = this.lives - 1
-                this.gameObj.pos = vec2(this.initialX, this.initialY)
-                this.isRespawning = true
-                setTimeout(()=> this.isRespawning = false, 500)
-            }
+            this.lives = this.lives - 1
+            this.gameObj.pos = vec2(this.initialX, this.initialY)
+            this.isRespawning = true
+            setTimeout(()=> this.isRespawning = false, 500)
         }
+    }
         
 
     update()
