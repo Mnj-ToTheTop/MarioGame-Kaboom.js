@@ -28,11 +28,25 @@ const scenes = {
     },
 
     1: () => {
+        setGravity(1400)
         const level1 = new Level()
         level1.drawBg("forest-Bg")
         level1.drawMap(level1Layout, level1Mappings)
-        const player = new Player(1500, 100, 400, 
-            3, 650, 3, 1, false )
+        const player = new Player(
+            level1Config.playerStartPosX, 
+            level1Config.playerStartPosY, 
+            level1Config.playerSpeed, 
+            level1Config.jumpForce, 
+            level1Config.nbLives, 
+            1, 
+            false
+        )
+
+        player.enablePassthrough()
+        player.update()
+
+        attachCamera(player.gameObj, 0, 200)
+
         level1.drawWaves("water", "wave")
     },
     2: () => {},
