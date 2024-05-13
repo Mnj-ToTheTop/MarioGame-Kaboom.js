@@ -73,7 +73,14 @@ export const load = {
             anims: {
                 idle: {
                     from: 0, to: 3, loop: true
-                }
+                },
+
+                run: {
+                    from: 4, to: 7, loop: true 
+                },
+                
+                "jump-up": 8,
+                "jump-down": 9
             }
         })
     },
