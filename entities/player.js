@@ -30,7 +30,7 @@ export class Player
         ])
     }
 
-        setPlayerControls()
+    setPlayerControls()
     {
         onKeyDown("left", () => {
             if (this.gameObj.curAnim() !== "run")
