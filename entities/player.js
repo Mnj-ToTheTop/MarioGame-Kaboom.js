@@ -58,6 +58,7 @@ export class Player
                 this.gameObj.play("run")
             this.gameObj.flipX = true
             if(!this.isRespawning) this.gameObj.move(-this.speed, 0)
+            this.isMoving = true
         })
 
         onKeyDown("right", () => {
@@ -65,6 +66,7 @@ export class Player
                 this.gameObj.play("run")
             this.gameObj.flipX = false
             if(!this.isRespawning) this.gameObj.move(this.speed, 0)
+            this.isMoving = true
         })
 
         onKeyDown("space", () => {
@@ -72,12 +74,16 @@ export class Player
             {
                 if(!this.isRespawning) this.gameObj.jump(this.jumpForce)
                 play("jump-sound")
+                this.isMoving = true
             }
         })
 
         onKeyRelease(() => {
             if(isKeyReleased("right")||isKeyReleased("left"))
+            {
                 this.gameObj.play("idle")
+                this.isMoving = false
+            }
         })
     }
 
