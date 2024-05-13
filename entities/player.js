@@ -75,11 +75,36 @@ export class Player
     update()
     {
         onUpdate(() => {
+            this.heightDelta = this.previousHeight - this.gameObj.pos.y
+            this.previousHeight = this.gameObj.pos.y
+            
+            if (this.isMoving == false && 
+                this.gameObj.curAnim() !== "idle")
+            {
+                this.gameObj.play("idle")
+            }
+            
             if(this.gameObj.pos.y > 800)
-                {
-                    // Sound: play("hit", { speed: 1.5})
-                    this.respawnPlayer()
-                }
+            {
+                // Sound: play("hit", { speed: 1.5})
+                this.respawnPlayer()
+            }
+            
+            if(!this.gameObj.isGrounded() &&
+                this.heightDelta > 0 &&
+                this.gameObj.curAnim() != "jump-up")   // Jumping up
+            {
+                this.gameObj.play("jump-up")
+            }
+
+            if(!this.gameObj.isGrounded() &&
+                this.heightDelta < 0 &&
+                this.gameObj.curAnim() != "jump-down")   // Jumping up
+            {
+                this.gameObj.play("jump-down")
+            }
+
+            
         })
     }
 }
