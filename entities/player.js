@@ -50,7 +50,7 @@ export class Player
             if (this.gameObj.isGrounded())
             {
                 if(!this.isRespawning) this.gameObj.jump(this.jumpForce)
-                play("jump-sound")
+                //play("jump-sound")
             }
         })
 
