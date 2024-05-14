@@ -9,7 +9,6 @@ export class Level
                 offset += 64
             }    
     }
-    
     drawMap(levelLayout, mappings)
     {
         const layerSetting = {

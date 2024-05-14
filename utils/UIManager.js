@@ -1,5 +1,38 @@
 class UIManager {
     
+    displayLivesCount(player)
+    {
+        this.livesCountUI = add([
+            text("", { font: "Round", size: 50}),
+            fixed(),
+            pos(70,10)
+        ])
+
+        this.livesCountUI.add([
+            sprite("star-red"),
+            pos(-60, -5),
+            scale(3),
+            fixed()
+        ])
+
+    }
+
+    displayCoinCount(player)
+    {
+        this.coinCountUI = add([
+            text("", { font: "Round", size: 50}),
+            {fullCoinCount: get("coin", { recursive: true }).length},
+            fixed(),
+            pos(70,70)
+        ])
+
+        this.coinCountUI.add([
+            sprite("coin-icon"),
+            pos(-60, 0),
+            scale(3),
+            fixed()
+        ])
+    }
     displayBlinkingUIMesage(content, position) {
 
         const message = add([
@@ -87,7 +120,7 @@ class UIManager {
         const controlPrompts = add([
             pos(center().x + 100, center().y)
         ])
-
+  
         controlPrompts.add([
             sprite("Up-key"),
             pos(0, -80)     // Values are relative to the parent, the values are offset
@@ -133,38 +166,67 @@ class UIManager {
             play("start-game", {speed: 1.5})
             go("1")
         })
-        /*
+    }
+
+    addDarkBg() {
+        add([ rect(270, 130), color(0,0,0), fixed() ])
+    }
+
+    finalScreen()
+    {
         add([
-            sprite("Up-key"),
-            scale(1.2),
-            pos(center().x + 200, center().y - 100)
+            sprite("forest-Bg"),
+            scale(4)
         ])
 
         add([
-            sprite("Down-key"),
-            scale(1.2),
-            pos(center().x + 200, center().y)
+            text("You Won", {
+                font: "Round",
+                size: 100,
+                color:(0,0,0)
+            }),
+            fixed(),
+            anchor("center"),
+            pos(center().x, center().y)
+        ])
+
+        this.replay()
+    }
+
+    Lossing()
+    {
+        add([
+            sprite("castle"),
+            scale(4)
         ])
 
         add([
-            sprite("Left-key"),
-            scale(1.2),
-            pos(center().x + 100, center().y)
+            text("Game Over", {
+                font: "Round",
+                size: 100,
+            }),
+            fixed(),
+            anchor("center"),
+            pos(center().x, center().y-200)
         ])
 
-        add([
-            sprite("Right-key"),
-            scale(1.2),
-            pos(center().x + 300, center().y)
-        ])
-
-        add([
-            sprite("Space-key"),
-            scale(1.75),
-            pos(center().x - 300, center().y - 25)
-        ])*/
+        this.replay()
 
     }
+
+    replay()
+    {
+        this.displayBlinkingUIMesage(
+            "PRESS [ ENTER ] TO REPLAY",
+            vec2(center().x, center().y + 100)
+        )
+
+        onKeyPress("enter", () => {
+            play("start-game", {speed: 1.5})
+            go("1")
+        })
+    }
+
 }
 
 export const uiManager = new UIManager()
