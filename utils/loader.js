@@ -49,7 +49,7 @@ export const load = {
             }
         })
 
-        loadSprite("lava", "./assets/Lava.png", {
+        /*loadSprite("lava", "./assets/Lava.png", {
             sliceX: 8,
             sliceY: 1,
             anims: {
@@ -63,7 +63,7 @@ export const load = {
                     speed: 16, loop: true,
                 },
             }
-        })
+        })*/
 
         loadSprite("grass-tileset", "./assets/Grass_Tileset.png", {
             sliceX: 3,
