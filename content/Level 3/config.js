@@ -1,6 +1,5 @@
-// So that if we modify the code, we won't need to modify everywhere
 
-export const level1Config = {
+export const level3Config = {
     gravity: 1400,
     playerSpeed: 400,
     jumpForce: 650,
