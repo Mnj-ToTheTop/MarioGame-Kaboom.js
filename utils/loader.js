@@ -49,7 +49,7 @@ export const load = {
             }
         })
 
-        loadSprite("lava", "./assets/lava.png", {
+        loadSprite("lava", "./assets/Lava.png", {
             sliceX: 8,
             sliceY: 1,
             anims: {
