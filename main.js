@@ -121,7 +121,7 @@ const scenes = {
         player.enableCoinPickUp()
 
         attachCamera(player.gameObj, 0, 200)
-        //level3.drawWaves("lava", "wave")
+        level3.drawWaves("lava", "wave")
 
         uiManager.addDarkBg()
 
